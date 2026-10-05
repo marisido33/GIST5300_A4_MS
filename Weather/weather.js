@@ -1,33 +1,56 @@
-var map = L.map('weathermap').setView([38, -95], 4);
-var basemapUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-var basemap =  L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 'www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+// Create map
+var map = L.map("weathermap").setView([38, -95], 4);
 
+// OpenStreetMap basemap
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution: "&copy; OpenStreetMap contributors"
+    }
+).addTo(map);
 
-//add the national precipitation radar layer
-var radarUrl = 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi';
-var radarDisplayOptions = {
-  layers: 'nexrad-n0r-900913',
-  format: 'image/png',
-  transparent: true
-};
-var radar = L.tileLayer.wms(radarUrl, radarDisplayOptions).addTo(map);
+// Radar layer
+L.tileLayer.wms(
+    "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi",
+    {
+        layers: "nexrad-n0r-900913",
+        format: "image/png",
+        transparent: true
+    }
+).addTo(map);
 
-//add alerts layer
-var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
-$.getJSON(weatherAlertsUrl, function(data) {
-    //L.geoJSON(data).addTo(map);
-    L.geoJSON(data, {
-        style: function(feature){
-            var alertColor = 'orange';
-            if (feature.properties.severity === 'Severe') alertColor = 'red';
-            return { color: alertColor };
-          },
+// Weather Alerts
+$.getJSON(
+    "https://api.weather.gov/alerts/active",
+    function(data) {
+
+        L.geoJSON(data, {
+            style: function(feature) {
+
+                var color = "orange";
+
+                if (feature.properties.severity === "Severe") {
+                    color = "red";
+                }
+
+                if (feature.properties.severity === "Extreme") {
+                    color = "purple";
+                }
+
+                return {
+                    color: color,
+                    weight: 2
+                };
+            },
+
             onEachFeature: function(feature, layer) {
-                layer.bindPopup(feature.properties.headline);
-                
+                layer.bindPopup(
+                    "<b>" + feature.properties.headline + "</b><br>" +
+                    feature.properties.severity
+                );
             }
-          
-      }).addTo(map);
-      
-});
 
+        }).addTo(map);
+
+    }
+);
