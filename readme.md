@@ -2,14 +2,11 @@
 ## Leaflet Web Map
 ### Maria Sidorenko
 
-A map showing real-time weather radar and alerts from the
-National Weather Service
+A website showing real-time weather radar map and alerts from the
+National Weather Service on one page and Earthquakes on the other page
 
-<https://marisido33.github.io/GIST5300_A4_MS/Weather/Weather/>
+<https://marisido33.github.io/GIST5300_A4_MS/Weather/>
 
-A map showing earthquake data and seismic risk pattern
-
-<https://marisido33.github.io/GIST5300_A4_MS/Weather/Earthquake/>
 
 ## Data Sources
 Weather radar (https://mesonet.agron.iastate.edu/cgibin/wms/nexrad/n0r.cgi) provided by Iowa State University Mesonet.
