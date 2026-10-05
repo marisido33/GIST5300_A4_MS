@@ -32,4 +32,18 @@ body {
 .legend h4 {
     margin: 0 0 5px 0;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
+#weathermap {
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+.legend i {
+    margin-right: 5px;
+}
