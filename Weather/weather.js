@@ -130,13 +130,12 @@ fetch(
 
 // Layer Control
 var overlays = {
-    "Weather Radar": radar,
-    "Weather Alerts": alertsLayer,
-    "Earthquakes": earthquakeLayer
+"Weather Radar": radar,
+"Weather Alerts": alertsLayer,
+"Earthquakes": earthquakeLayer
 };
 
 L.control.layers(null, overlays).addTo(map);
-
 
 
 // Earthquake Legend
