@@ -17,3 +17,16 @@ L.tileLayer.wms(
         transparent: true
     }
 ).addTo(map);
+map.on("click", function(e) {
+
+    L.popup()
+        .setLatLng(e.latlng)
+        .setContent(
+            "Latitude: " +
+            e.latlng.lat.toFixed(2) +
+            "<br>Longitude: " +
+            e.latlng.lng.toFixed(2)
+        )
+        .openOn(map);
+
+});
