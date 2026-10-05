@@ -6,3 +6,18 @@ body {
     height: 100%;
     width: 100%;
    }
+#earthquake {
+    height: 100%;
+    width: 100%;
+}
+.legend {
+    background: white;
+    padding: 10px;
+    line-height: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px gray;
+}
+
+.legend h4 {
+    margin: 0 0 5px;
+}
