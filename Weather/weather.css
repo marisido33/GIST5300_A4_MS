@@ -47,3 +47,9 @@ html, body {
 .legend i {
     margin-right: 5px;
 }
+
+.leaflet-control-layers {
+    background: white;
+    padding: 6px;
+    z-index: 1000 !important;
+}
